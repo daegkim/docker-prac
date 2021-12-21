@@ -1,0 +1,12 @@
+[submodule "docker-prac-be"]
+	path = docker-prac-be
+	url = https://github.com/daegkim/docker-prac-be.git
+[submodule "docker-prac-fe"]
+	path = docker-prac-fe
+	url = https://github.com/daegkim/docker-prac-fe.git
+[submodule "docker-prac-mysql"]
+	path = docker-prac-mysql
+	url = https://github.com/daegkim/docker-prac-mysql.git
+[submodule "docker-prac-nginx"]
+	path = docker-prac-nginx
+	url = https://github.com/daegkim/docker-prac-nginx.git
