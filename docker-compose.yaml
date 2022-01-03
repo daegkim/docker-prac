@@ -1,18 +1,16 @@
 version: "3"
 services:
   frontend:
-    depends_on:
-      - backend
     build:
       dockerfile: Dockerfile
       context: ./docker-prac-fe
     volumes:
       - /usr/app/node_modules
       - ./docker-prac-fe:/usr/app
+    depends_on:
+      - backend
 
   backend:
-    depends_on:
-      - mysql
     build:
       dockerfile: Dockerfile
       context: ./docker-prac-be
@@ -20,17 +18,18 @@ services:
       - /usr/app/node_modules
       - ./docker-prac-be:/usr/app
 
-  mysql:
-    build:
-      dockerfile: Dockerfile
-      context: ./docker-prac-mysql
-    restart: unless-stopped
-    volumes:
-      - ./docker-prac-mysql/mysql_data:/var/lib/mysql
-      - ./docker-prac-mysql/sqls/:/docker-entrypoint-initdb.d/
-    environment:
-      MYSQL_ROOT_PASSWORD: 12345678
-      MYSQL_DATABASE: memo_schema
+  # 실제 운영환경에서는 별도 mysql서버를 사용할 예정이기 때문에 필요가 없다.
+  # mysql:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./docker-prac-mysql
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./docker-prac-mysql/mysql_data:/var/lib/mysql
+  #     - ./docker-prac-mysql/sqls/:/docker-entrypoint-initdb.d/
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 12345678
+  #     MYSQL_DATABASE: memo_schema
 
   nginx:
     restart: always

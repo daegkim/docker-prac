@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "docker-compose build & docker-compose up -d"
+    "start": "docker-compose -f docker-compose.yaml up -d",
+    "start-dev": "docker-compose -f docker-compose.dev.yaml up -d"
   },
   "author": "",
   "license": "ISC"
