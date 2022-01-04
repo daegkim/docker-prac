@@ -13,6 +13,6 @@ after_success:
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push daegkim/fe
-  - docker push daegkim/be
-  - docker push daegkim/nginx
+  - docker push "$DOCKER_HUB_ID"/daegkim_fe:daegkim/fe
+  - docker push "$DOCKER_HUB_ID"/daegkim_be:daegkim/be
+  - docker push "$DOCKER_HUB_ID"/daegkim_nginx:daegkim/nginx
