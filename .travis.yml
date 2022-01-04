@@ -7,12 +7,12 @@ before-install:
 script:
   - docker run -e CI=true daegkim/fe npm run test
 after_success:
-  - docker build -t daegkim/fe ./docker-prac-fe
-  - docker build -t daegkim/be ./docker-prac-be
-  - docker build -t daegkim/nginx ./docker-prac-nginx
+  - docker build -t daegeunkim/docker-prac-fe:1.0.0 ./docker-prac-fe
+  - docker build -t daegeunkim/docker-prac-be:1.0.0 ./docker-prac-be
+  - docker build -t daegeunkim/docker-prac-nginx:1.0.0 ./docker-prac-nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push "$DOCKER_HUB_ID"/daegkim_fe:daegkim/fe
-  - docker push "$DOCKER_HUB_ID"/daegkim_be:daegkim/be
-  - docker push "$DOCKER_HUB_ID"/daegkim_nginx:daegkim/nginx
+  - docker push daegeunkim/docker-prac-fe:1.0.0
+  - docker push daegeunkim/docker-prac-be:1.0.0
+  - docker push daegeunkim/docker-prac-nginx:1.0.0
