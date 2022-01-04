@@ -16,3 +16,14 @@ after_success:
   - docker push daegeunkim/docker-prac-fe:1.0.0
   - docker push daegeunkim/docker-prac-be:1.0.0
   - docker push daegeunkim/docker-prac-nginx:1.0.0
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-prac"
+  env: "Dockerprac-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-868868105836
+  bucket_path: "docker-prac"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
