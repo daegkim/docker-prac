@@ -17,6 +17,12 @@ services:
     volumes:
       - /usr/app/node_modules
       - ./docker-prac-be:/usr/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: docker1234
+      MYSQL_DATABASE: memo_schema
+      MYSQL_PORT: 3306
 
   # 실제 운영환경에서는 별도 mysql서버를 사용할 예정이기 때문에 필요가 없다.
   # mysql:
